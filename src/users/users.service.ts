@@ -31,7 +31,6 @@ async create(createUserDto: CreateUserDto) {
        productTableViewColumns: '["1","2","3","4","5","6"]'
    };
    return this.databaseService.user.create({data:userToCreate})
-
  }
 
  async login(email:string, password:string) {
