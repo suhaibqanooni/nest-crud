@@ -1,5 +1,5 @@
 import { PrismaClient, Roles } from "@prisma/client";
-import { IsEmail, IsNotEmpty, IsNumber, IsString, ValidationOptions, ValidatorConstraint, ValidatorConstraintInterface, registerDecorator } from "class-validator";
+import { IsEmail, IsNotEmpty, IsNumber, IsString, Max, MaxLength, ValidationOptions, ValidatorConstraint, ValidatorConstraintInterface, registerDecorator } from "class-validator";
 import { UserService } from "../users.service";
 const prisma = new PrismaClient()
 
@@ -11,7 +11,7 @@ export class IsEmailUniqueConstraint implements ValidatorConstraintInterface {
         return !user
     }
     defaultMessage() {
-        return 'User already exists';
+        return 'Email Already Registered!';
     }
 }
 
@@ -59,9 +59,11 @@ export class CreateUserDto {
     password:string
 
     @IsString()
+    @MaxLength(20, {message:"Name must be less than 20 characters"})
     name:string
 
     @IsNumber()
+    @Max(60, { message: 'Age must be less than 60' })
     age:number
 
     @IsString()

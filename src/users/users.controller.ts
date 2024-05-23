@@ -10,11 +10,6 @@ import { CreateUserDto } from './dto/user.dto';
 export class UsersController {
   constructor(private readonly userService: UserService) {}
 
-  // @Post()
-  // @UseGuards(new UserGaurd())
-  // create(@Body() createUserDto: Prisma.UserCreateInput) {
-  //   return this.userService.create(createUserDto);
-  // }
   @Post()
   @UseGuards(new UserGaurd())
   create(@Body(new ValidationPipe()) createUserDto: CreateUserDto) {
@@ -52,12 +47,6 @@ export class UsersController {
   update(@Param('id') id: string, @Body() updateUserDto: Prisma.UserCreateInput) {
       return this.userService.update(+id, updateUserDto);
   }
-
-  // @Patch(':id')
-  // @UsePipes(ProductValidationPipe) 
-  // update(@Param('id') id: string, @Body() updateUserDto: Prisma.ProductCreateInput) {
-  //   return this.userService.update(+id, updateUserDto);
-  // }
 
   @Delete(':id')
   remove(@Param('id') id: string) {

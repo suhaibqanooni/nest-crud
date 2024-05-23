@@ -9,20 +9,6 @@ import { CreateUserDto } from './dto/user.dto';
 export class UserService {
   constructor(private readonly databaseService: DatabaseService, private jwtService: JwtService) { }
 
-//   async create(createUserDto: Prisma.UserCreateInput) {
-//  try{
-//     const hashedPassword = await bcrypt.hash(createUserDto.password, 10);
-//     const userToCreate: Prisma.UserCreateInput = {
-//       ...createUserDto,
-//       password: hashedPassword 
-//   };
-//   return await this.databaseService.user.create({data:userToCreate})
-// }catch(err){
-//     if (err.code === 'P2002') {
-//       return {error: "Email already exists"}
-//     }
-//   }
-// }
 async create(createUserDto: CreateUserDto) {
      const hashedPassword = await bcrypt.hash(createUserDto.password, 10);
      const userToCreate: CreateUserDto = {
@@ -60,8 +46,6 @@ async create(createUserDto: CreateUserDto) {
 
   async findOne(id: number) {
     return await this.databaseService.user.findUnique({where:{id}})
-    // const { password,...rest } = user;
-    // return {user:rest}
   }
 
   async getOneUser(id: number) {
