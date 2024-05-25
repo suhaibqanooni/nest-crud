@@ -13,24 +13,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Employee {
-  id        Int     @id @unique @default(autoincrement())
-  name      String
-  dob       String
-  email     String  @unique
-  position  String
-  productId Int
-  addedById Int
-  Product   Product @relation(fields: [productId], references: [id])
-  User      User    @relation(fields: [addedById], references: [id])
-}
-
 model Product {
   id       Int        @id @default(autoincrement())
   title    String
   price    Int
   category Category
-  Employee Employee[]
+  Employee employee[]
 }
 
 model User {
@@ -41,7 +29,19 @@ model User {
   role                    Roles
   password                String
   productTableViewColumns String     @default("[\"1\",\"2\",\"3\",\"4\",\"5\",\"6\"]")
-  Employee                Employee[]
+  Employee                employee[]
+}
+
+model employee {
+  id        Int     @id @unique @default(autoincrement())
+  name      String
+  dob       String
+  email     String  @unique
+  position  String
+  productId Int
+  addedById Int
+  Product   Product @relation(fields: [productId], references: [id])
+  User      User    @relation(fields: [addedById], references: [id])
 }
 
 enum Roles {
