@@ -2,10 +2,12 @@ import { PrismaClient } from "@prisma/client";
 import { IsEmail,  IsNumber, IsString,  MaxLength, 
     ValidationOptions, ValidatorConstraint, ValidatorConstraintInterface, 
     registerDecorator } from "class-validator";
-const prisma = new PrismaClient()
+import { EmployeesService } from "../employees.service";
 
+const prisma = new PrismaClient()
 @ValidatorConstraint({ async: true })
 export class IsEmailUniqueConstraint implements ValidatorConstraintInterface {
+    constructor(private readonly employeeService: EmployeesService) {}
     async validate(email: string) {
         const emp = await prisma.employee.findUnique({where: { email: email }})
         return !emp
