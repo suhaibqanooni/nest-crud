@@ -1,6 +1,7 @@
 import { CanActivate, ExecutionContext, Injectable } from "@nestjs/common";
 import { Request } from "express";
 const {userRoles} = require("../../data.js")
+
 @Injectable()
 export class EmployeesGaurd implements CanActivate {
     canActivate(context: ExecutionContext): boolean {

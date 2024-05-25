@@ -44,8 +44,8 @@ export class EmployeesController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateUserDto: Prisma.UserCreateInput) {
-      return this.employeesService.update(+id, updateUserDto);
+  update(@Param('id') id: string, @Body() updateEmployeeDto: Prisma.EmployeeCreateInput) {
+      return this.employeesService.update(+id, updateEmployeeDto);
   }
 
   @Delete(':id')

@@ -3,6 +3,7 @@ import { Prisma } from '@prisma/client';
 
 import { CreateEmployeesDto } from './dto/employees.dto';
 import { DatabaseService } from 'src/database/database.service';
+
 @Injectable()
 export class EmployeesService {
   constructor(private readonly databaseService: DatabaseService) { }
@@ -28,8 +29,8 @@ export class EmployeesService {
       include:{Product:true, User:{select:{id:true, name:true, email:true, role:true}}}})
   }
 
- async update(id: number, updateUserDto: Prisma.UserCreateInput) {
-    return this.databaseService.employee.update({where:{id}, data:updateUserDto})
+ async update(id: number, updateEmployeeDto: Prisma.EmployeeCreateInput) {
+    return this.databaseService.employee.update({where:{id}, data:updateEmployeeDto})
   }
   
   remove(id: number) {
