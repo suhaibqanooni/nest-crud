@@ -25,7 +25,6 @@ export function IsEmailUnique(validationOptions?: ValidationOptions) {
     };
 }
 
-
 export class CreateEmployeesDto {
     @IsEmail()
     @IsEmailUnique()
