@@ -13,18 +13,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// model User {
-//   id                      Int        @id @default(autoincrement())
-//   name                    String
-//   age                     Int
-//   email                   String     @unique
-//   role                    Roles
-//   password                String
-//   productTableViewColumns String     @default("[\"1\",\"2\",\"3\",\"4\",\"5\",\"6\"]")
-//   Employee                Employee[]
-//   Employee                Employee?
-// }
-
 model Employee {
   id        Int     @id @unique @default(autoincrement())
   name      String
@@ -61,29 +49,6 @@ enum Roles {
   LOCAL
   USER
 }
-
-// model Employee {
-//   id        Int      @id @unique @default(autoincrement())
-//   name      String
-//   dob       String
-//   email     String   @unique
-//   position  String
-//   productId Product  @relation(fields: [id], references: [id], name: "Employee_Product_FK")
-//   addedBy   User     @relation(fields: [id], references: [id], name: "Employee_User_FK")
-//   User      User?    @relation(fields: [userId], references: [id])
-//   userId    Int?
-//   Product   Product? @relation(fields: [productId], references: [id])
-//   productId Int?
-// }
-
-// model Product {
-//   id       Int        @id @default(autoincrement())
-//   title    String
-//   price    Int
-//   category Category
-//   Employee Employee[]
-//   Employee Employee?
-// }
 
 enum Category {
   LAPTOPS

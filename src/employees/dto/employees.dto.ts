@@ -1,5 +1,7 @@
-import { PrismaClient, Roles } from "@prisma/client";
-import { IsEmail, IsNotEmpty, IsNumber, IsString, Max, MaxLength, ValidationOptions, ValidatorConstraint, ValidatorConstraintInterface, registerDecorator } from "class-validator";
+import { PrismaClient } from "@prisma/client";
+import { IsEmail,  IsNumber, IsString,  MaxLength, 
+    ValidationOptions, ValidatorConstraint, ValidatorConstraintInterface, 
+    registerDecorator } from "class-validator";
 const prisma = new PrismaClient()
 
 @ValidatorConstraint({ async: true })
