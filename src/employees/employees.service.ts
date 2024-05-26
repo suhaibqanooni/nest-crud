@@ -1,8 +1,9 @@
-import {  Injectable } from '@nestjs/common';
+import {  Injectable, NotFoundException } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
 
 import { CreateEmployeesDto } from './dto/employees.dto';
 import { DatabaseService } from 'src/database/database.service';
+
 
 @Injectable()
 export class EmployeesService {

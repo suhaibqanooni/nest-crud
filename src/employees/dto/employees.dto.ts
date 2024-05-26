@@ -49,4 +49,7 @@ export class CreateEmployeesDto {
 
     @IsNumber()
     addedById:number
+
+    @IsString()
+    photo: string
 }

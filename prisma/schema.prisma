@@ -42,6 +42,7 @@ model Employee {
   addedById Int
   Product   Product @relation(fields: [productId], references: [id])
   User      User    @relation(fields: [addedById], references: [id])
+  photo     String  @default("")
 }
 
 enum Roles {
