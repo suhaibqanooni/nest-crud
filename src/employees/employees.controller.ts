@@ -37,8 +37,6 @@ uploadFile(@UploadedFile() file: Express.Multer.File) {
 async deleteFile(@Param('id') id: string){
   const user = await this.employeesService.findOne(+id)
   if(user.photo){
-    const filePath = path.join(__dirname, '..', user.photo);
-    console.log("________ filename", filePath)
    try {
      if (fs.existsSync(user.photo)) {
        fs.unlinkSync(user.photo);
