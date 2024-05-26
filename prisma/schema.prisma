@@ -30,6 +30,7 @@ model User {
   password                String
   productTableViewColumns String     @default("[\"1\",\"2\",\"3\",\"4\",\"5\",\"6\"]")
   Employee                Employee[]
+  Order                   Order[]
 }
 
 model Employee {
@@ -43,6 +44,29 @@ model Employee {
   Product   Product @relation(fields: [productId], references: [id])
   User      User    @relation(fields: [addedById], references: [id])
   photo     String  @default("")
+}
+
+model Order {
+  id          Int      @id @unique @default(autoincrement())
+  name        String
+  phone       String   @unique
+  address     String   @default("")
+  qad         Int
+  width       Int
+  arm         Int
+  cuff        Int
+  chest       Int
+  daman       Int
+  collar      Int
+  collarType  String
+  pant        Int
+  pantCuff    Int
+  frontPocket Boolean
+  order       String   @default("")
+  addedById   Int      @default(1)
+  User        User     @relation(fields: [addedById], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
 enum Roles {
