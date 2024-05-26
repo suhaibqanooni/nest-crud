@@ -34,6 +34,12 @@ export class EmployeesService {
     return this.databaseService.employee.update({where:{id}, data:updateEmployeeDto})
   }
   
+
+
+
+
+
+  
   remove(id: number) {
     return this.databaseService.employee.delete({where:{id}})
   }
