@@ -34,8 +34,6 @@ export class OrdersService {
     return this.databaseService.order.update({where:{id}, data:updateEmployeeDto})
   }
     
-
-
   remove(id: number) {
     return this.databaseService.order.delete({where:{id}})
   }
