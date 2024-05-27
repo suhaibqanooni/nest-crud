@@ -51,16 +51,16 @@ model Order {
   name        String
   phone       String   @unique
   address     String?
-  qad         Int?
-  width       Int?
-  arm         Int?
-  cuff        Int?
-  chest       Int?
-  daman       Int?
-  collar      Int?
+  qad         Float?
+  width       Float?
+  arm         Float?
+  cuff        Float?
+  chest       Float?
+  daman       Float?
+  collar      Float?
   collarType  String?
-  pant        Int?
-  pantCuff    Int?
+  pant        Float?
+  pantCuff    Float?
   frontPocket String?
   order       String?
   addedById   Int?

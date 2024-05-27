@@ -27,18 +27,18 @@ export class OrdersController {
 
   @Get(':id')
   async findOne(@Param('id') id: string) {
-     const user = await this.ordersService.findOne(+id)
-      if(!user)
+     const order = await this.ordersService.findOne(+id)
+      if(!order)
         throw new NotFoundException("Order with id " + id + " not found")
-      return user
+      return order
   }
 
   @Get('details/:id')
   async findOneWithDetails(@Param('id') id: string) {
-     const user = await this.ordersService.findOneWithDetails(+id)
-      if(!user)
+     const order = await this.ordersService.findOneWithDetails(+id)
+      if(!order)
         throw new NotFoundException("Order with id " + id + " not found")
-      return user
+      return order
   }
 
   @Patch(':id')
