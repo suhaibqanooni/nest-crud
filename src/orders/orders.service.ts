@@ -37,6 +37,4 @@ export class OrdersService {
   remove(id: number) {
     return this.databaseService.order.delete({where:{id}})
   }
-
-
 }

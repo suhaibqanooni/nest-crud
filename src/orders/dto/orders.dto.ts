@@ -13,7 +13,6 @@ export class IsPhoneNumberUnique implements ValidatorConstraintInterface {
         return 'Phone Number Already Registered!';
     }
 }
-
 export function IsPhoneUnique(validationOptions?: ValidationOptions) {
     return function (object: any, propertyName: string) {
         registerDecorator({
@@ -25,7 +24,6 @@ export function IsPhoneUnique(validationOptions?: ValidationOptions) {
         });
     };
 }
-
 
 export class CreateOrdersDto {
     @IsString()
