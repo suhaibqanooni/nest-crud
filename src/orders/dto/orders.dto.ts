@@ -1,6 +1,5 @@
 import { PrismaClient  } from "@prisma/client";
-import {   IsBoolean, IsNumber, IsString,  MaxLength, 
-    ValidationOptions, ValidatorConstraint, ValidatorConstraintInterface, 
+import {    IsNumber, IsString, ValidationOptions, ValidatorConstraint, ValidatorConstraintInterface, 
     registerDecorator } from "class-validator";
 const prisma = new PrismaClient()
 
