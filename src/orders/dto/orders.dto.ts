@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient  } from "@prisma/client";
 import {   IsBoolean, IsNumber, IsString,  MaxLength, 
     ValidationOptions, ValidatorConstraint, ValidatorConstraintInterface, 
     registerDecorator } from "class-validator";
@@ -60,7 +60,7 @@ export class CreateOrdersDto {
     collar:number
     
     @IsString()
-    collarType:String
+    collarType:string
     
     @IsNumber()
     pant:number
@@ -68,13 +68,12 @@ export class CreateOrdersDto {
     @IsNumber()
     pantCuff:number
 
-    @IsBoolean()
-    frontPocket:boolean
+    @IsString()
+    frontPocket:string
 
     @IsString()
     order: string
 
     @IsNumber()
-    addedById: number
-
+    addedById: number;
 }

@@ -10,13 +10,8 @@ export class OrdersService {
   constructor(private readonly databaseService: DatabaseService) { }
 
   async create(createOrdersDto: CreateOrdersDto) {
-    console.log(createOrdersDto)
     return this.databaseService.order.create({data:createOrdersDto})
   }
-
-  // async create(createOrdersDto: Prisma.OrderCreateInput) {
-  //   return this.databaseService.order.create({data:createOrdersDto})
-  // }
 
   async findAll() {
     return await this.databaseService.order.findMany({orderBy: {id: 'asc'}})
