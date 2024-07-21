@@ -3,7 +3,7 @@ import { Prisma } from '@prisma/client';
 import { ApiTags } from '@nestjs/swagger';
 import { UserService } from './users.service';
 import { UserGaurd } from './user.gaurd';
-import { CreateUserDto } from './dto/user.dto';
+import { CreateUserDto, UserLoginDto } from './dto/user.dto';
 
 @ApiTags("User")
 @Controller('user')
@@ -11,14 +11,13 @@ export class UsersController {
   constructor(private readonly userService: UserService) {}
 
   @Post()
-  @UseGuards(new UserGaurd())
-  create(@Body(new ValidationPipe()) createUserDto: CreateUserDto) {
+  create(@Body() createUserDto: CreateUserDto) {
     return this.userService.create(createUserDto);
   }
   
   @Post('/login')
-  login(@Body() createUserDto: Prisma.UserCreateInput) {
-    return this.userService.login(createUserDto.email, createUserDto.password);
+  login(@Body() loginDto: UserLoginDto) {
+    return this.userService.login(loginDto.email, loginDto.password);
   }
 
   @Get()
