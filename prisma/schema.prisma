@@ -63,6 +63,7 @@ model Order {
   pantCuff    Float?
   frontPocket String?
   order       String?
+  returnDate  String?
   addedById   Int?
   User        User?    @relation(fields: [addedById], references: [id])
   createdAt   DateTime @default(now())
